@@ -1,0 +1,69 @@
+{
+  "name": "pathfinder-genesis-nft",
+  "version": "0.0.0",
+  "private": true,
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.4",
+    "@nomiclabs/hardhat-etherscan": "^3.0.3",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@openzeppelin/contracts": "^4.4.2",
+    "@typechain/ethers-v5": "^7.2.0",
+    "@typechain/hardhat": "^2.3.1",
+    "@types/chai": "^4.3.0",
+    "@types/chai-as-promised": "^7.1.5",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^12.20.41",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "dotenv": "^10.0.0",
+    "erc721a": "^4.2.3",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.5.3",
+    "hardhat": "^2.8.2",
+    "hardhat-gas-reporter": "^1.0.7",
+    "husky": "^8.0.3",
+    "keccak256": "^1.0.6",
+    "merkletreejs": "^0.2.27",
+    "prettier": "^2.5.1",
+    "prettier-plugin-solidity": "^1.0.0-beta.19",
+    "solhint": "^3.3.6",
+    "solhint-plugin-prettier": "^0.0.5",
+    "solidity-coverage": "^0.7.17",
+    "ts-node": "^10.4.0",
+    "typechain": "^5.2.0",
+    "typescript": "^4.5.4"
+  },
+  "scripts": {
+    "accounts": "hardhat accounts",
+    "rename-contract": "hardhat rename-contract",
+    "compile": "hardhat compile --force",
+    "test": "hardhat test",
+    "test-extended": "EXTENDED_TESTS=1 hardhat test",
+    "test-gas": "REPORT_GAS=1 hardhat test",
+    "local-node": "hardhat node",
+    "root-hash": "hardhat generate-root-hash",
+    "proof": "hardhat generate-proof",
+    "deploy": "hardhat run scripts/1_deploy.ts",
+    "verify": "hardhat verify --constructor-args config/ContractArguments.ts",
+    "whitelist-open": "hardhat run scripts/2_whitelist_open.ts",
+    "public-sale-open": "hardhat run scripts/3_public_sale_open.ts",
+    "pause-sale": "hardhat run scripts/4_pause_sale.ts",
+    "reveal": "hardhat run scripts/5_reveal.ts",
+    "airdrop": "hardhat run scripts/6_airdrop.ts",
+    "lint:solidity": "./node_modules/.bin/prettier --write contracts/**/*.sol",
+    "lint:prettier": "eslint \"*/**/*.{ts,json}\" --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run prettier:solidity"
+    }
+  },
+  "dependencies": {
+    "operator-filter-registry": "^1.4.1"
+  }
+}
